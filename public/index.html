@@ -6,20 +6,30 @@
     <script src="angularScripts/angular.js"></script>
     <script src="app.js"></script>
     <script type="text/javascript" src="angularScripts/angular-route.js"></script>
+    <script type="text/javascript" src="angularScripts/angular-local-storage.min.js"></script>
+    <script type="text/javascript" src="StorageExampleController.js"></script>
+
+
+
 </head>
 <body>
     <header><h1>Routing App Example</h1></header>
 
     <div ng-controller="mainController as mainCtrl">
         <div>
-            <a href="#/">Home</a>
+            <a ng-href="#/">Home</a>
         </div>
         <div ng-show="mainCtrl.userService.isLoggedIn">
-            <a href="#/cities">Cities List</a>
+            <a ng-href="#/cities">Cities List</a>
         </div>
         <div>
             <span ng-hide="mainCtrl.userService.isLoggedIn">
-                <a href="#/login">Login</a>
+                <a ng-href="#/login">Login</a>
+            </span>
+        </div>
+        <div>
+            <span ng-hide="mainCtrl.userService.isLoggedIn">
+                <a ng-href="#/StorageExample">Local-Storage</a>
             </span>
         </div>
     </div>
