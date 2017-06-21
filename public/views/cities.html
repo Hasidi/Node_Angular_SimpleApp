@@ -34,5 +34,19 @@
             </tbody>
         </table>
     </div>
+    <br>
+    <div>
+        <h3>Add your own city</h3>
+        <label>
+            City Name
+            <input type="text" ng-model="citiesCtrl.myCity.name">
+        </label>
+        <br>
+        <label>
+            Country
+            <input type="text" ng-model="citiesCtrl.myCity.country">
+        </label>
+        <button ng-click="citiesCtrl.addCity()">Add City</button>
+    </div>
 
 </div>

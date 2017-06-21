@@ -20,6 +20,8 @@ angular.module("myApp")
         else
             $window.alert('failed to add the data');
 
+        localStorageService.get(key);
+
     };
 
     self.deleteData = function () {

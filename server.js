@@ -23,6 +23,17 @@ app.get('/cities', function (req,res) {
     }
 });
 //-------------------------------------------------------------------------------------------------------------------
+app.post('/cities', function (req,res) {
+    if (!checkLogin(req))
+        res.status(403).send("you are not logged in");
+    else {
+        let newCity = req.body;
+        newCity.id = cities.length;
+        cities.push(newCity);
+        res.status(200).send('City was added');
+    }
+});
+//-------------------------------------------------------------------------------------------------------------------
 app.post('/login', function (req,res) {
     let username = req.body.username;
     let password = req.body.password;
@@ -61,18 +72,21 @@ app.listen(port, function () {
 
 var cities = [
     {
+        id: 0,
         name: 'Liverpool',
         country: 'England',
         population: '466,415',
         description: "Liverpool is a city in Merseyside, England. A borough from 1207 and a city from 1880, in 2014 the city council area had a population of 470,537 and the Liverpool/Birkenhead metropolitan area one of 2,241,000. Liverpool is in the south west of the historic county of Lancashire in North West England, on the eastern side of the Mersey Estuary. The town historically lay within the ancient Lancashire division of West Derby known as a hundred."
     },
     {
+        id: 1,
         name: 'Paris',
         country: 'France',
         population: '2,240,621',
         description: 'Paris is the capital and most populous city of France. Situated on the Seine River, in the north of the country, it is in the centre of the Île-de-France region, also known as the région parisienne, Paris Region.',
     },
     {
+        id: 2,
         name: 'Madrid',
         country: 'Spain',
         population: '3,141,992',
